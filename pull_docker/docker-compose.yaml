@@ -1,0 +1,13 @@
+services:
+  frontend:
+    image: tunghd6/autoc-fe:latest
+    ports:
+      - "5173:5173" 
+
+  backend:
+    image: tunghd6/autoc-be:latest
+    ports:
+      - "5000:5000"  
+    environment:
+      - GROQ_API_KEY=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
+      - PROMPT_ROOT_DIR=/app/prompt_tests/omnicomplete
