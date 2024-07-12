@@ -1,0 +1,20 @@
+# Use an official Node.js runtime as a parent image
+FROM node:18
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the package.json and yarn.lock files to the working directory
+COPY package.json yarn.lock ./
+
+# Install dependencies
+RUN yarn install
+
+# Copy the rest of the application code to the working directory
+COPY . /app/
+
+# Make port 3000 available to the world outside this container (or the port your app uses)
+EXPOSE 5173
+
+# Define the command to run your app in development mode
+CMD ["yarn", "dev"]
